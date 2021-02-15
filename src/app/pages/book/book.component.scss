@@ -1,0 +1,14 @@
+#id{
+    height: 60vh;
+    width: auto;
+    max-width: 100%;
+}
+
+@media (max-width: 991px){
+	.imgBook{
+		max-width: 100%;
+	}
+	.contenido{
+		height: 34vh;
+	}
+}

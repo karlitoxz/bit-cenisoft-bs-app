@@ -9,6 +9,8 @@ import { HeaderComponent } from './layouts/header/header.component';
 import { BannerComponent } from './layouts/banner/banner.component';
 import { HomeComponent } from './pages/home/home.component';
 import { BookComponent } from './pages/book/book.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { BookComponent } from './pages/book/book.component';
     HeaderComponent,
     BannerComponent,
     HomeComponent,
-    BookComponent
+    BookComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
