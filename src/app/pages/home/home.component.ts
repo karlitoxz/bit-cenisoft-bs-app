@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BooksService } from 'src/app/services/books.service';
 
 @Component({
   selector: 'app-home',
@@ -8,40 +9,18 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   gato = '';
 
-  books = [
-    {
-      _id: 1,
-      cover: 'assets/images/book.jpg',
-      name: 'The Arrivals',
-      description: `Cupidatat laborum deserunt enim veniam amet consequat tempor veniam nulla tempor id dolor mollit. Voluptate non quis sit ea Lorem est magna consectetur. In enim veniam veniam consequat officia incididunt do laborum. Reprehenderit sint amet quis ea do do in culpa irure do proident.`,
-        unitValue: 50000
-    },
-    {
-      _id: 1,
-      cover: 'assets/images/book.jpg',
-      name: 'The Arrivals',
-      description: `Cupidatat laborum deserunt enim veniam amet consequat tempor veniam nulla tempor id dolor mollit. Voluptate non quis sit ea Lorem est magna consectetur. In enim veniam veniam consequat officia incididunt do laborum. Reprehenderit sint amet quis ea do do in culpa irure do proident.`,
-        unitValue: 50000
-    },
-    {
-      _id: 1,
-      cover: 'assets/images/book.jpg',
-      name: 'The Arrivals',
-      description: `Cupidatat laborum deserunt enim veniam amet consequat tempor veniam nulla tempor id dolor mollit. Voluptate non quis sit ea Lorem est magna consectetur. In enim veniam veniam consequat officia incididunt do laborum. Reprehenderit sint amet quis ea do do in culpa irure do proident.`,
-        unitValue: 50000
-    },
-    {
-      _id: 1,
-      cover: 'assets/images/book.jpg',
-      name: 'The Arrivals',
-      description: `Cupidatat laborum deserunt enim veniam amet consequat tempor veniam nulla tempor id dolor mollit. Voluptate non quis sit ea Lorem est magna consectetur. In enim veniam veniam consequat officia incididunt do laborum. Reprehenderit sint amet quis ea do do in culpa irure do proident.`,
-        unitValue: 50000
-    }
-  ]
+  books = []
 
-  constructor() { }
+  constructor(private BooksService: BooksService) { }
 
   ngOnInit(): void {
+    this.BooksService.getAll()
+      .subscribe( (books: any) => {
+        console.log('books', books)
+        this.books = books;
+      }, (error) => {
+        console.error('Error get book ', error)
+      })
   }
 
 }
